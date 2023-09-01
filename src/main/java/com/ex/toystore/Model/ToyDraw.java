@@ -1,5 +1,9 @@
 package com.ex.toystore.Model;
 
 public class ToyDraw {
-    ToyList toyList = new ToyList();
+    private ToyList toyList = new ToyList();
+
+    public ToyList getToyList() {
+        return toyList;
+    }
 }
