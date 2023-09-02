@@ -19,11 +19,6 @@ public class Main {
         presenter.printResult(presenter.draw());
         presenter.printResult(presenter.draw());
         presenter.printResult(presenter.draw());
-        presenter.printResult(presenter.draw());
-        presenter.printResult(presenter.draw());
-        presenter.printResult(presenter.draw());
-        presenter.printResult(presenter.draw());
-        presenter.printResult(presenter.draw());
 
 
     }
