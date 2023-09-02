@@ -12,7 +12,6 @@ package com.ex.toystore.Model;
 
 
 import java.util.PriorityQueue;
-import java.util.Queue;
 
 public class ToyList {
     private PriorityQueue<Toy> toyList;
@@ -21,16 +20,29 @@ public class ToyList {
         this.toyList = new PriorityQueue<>();
     }
 
+    /**
+     * @param toy "Игрушка"
+     * @throws NullPointerException "Переданная игрушка null"
+     */
     public void addToyToList(Toy toy) throws NullPointerException {
         if (toy == null)
             throw new NullPointerException("Переданное значения является null");
         this.toyList.add(toy);
     }
 
-    public Queue<Toy> getToyList() {
+    /**
+     * @return "Очередь игрушек"
+     */
+    public PriorityQueue<Toy> getToyList() {
         return toyList;
     }
 
+    /**
+     * Метод вытягивает игрушку из очереди, согласно заданному шансу. Изменяет шанс, уменьшает
+     * кол-во оставшихся игрушек и возвращает игрушку
+     * @return "Игрушка"
+     * @throws NullPointerException "В списке больше нет игрушек"
+     */
     public Toy getToyInList() throws NullPointerException {
         if (this.toyList.peek() == null) {
             throw new NullPointerException("Список пустой");

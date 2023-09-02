@@ -19,6 +19,10 @@ public class Presenter {
         }
     }
 
+    /**
+     * "Розыгрыш" игрушки
+     * @return "Игрушка"
+     */
     public Toy draw(){
         Toy toy = null;
         try {
@@ -29,6 +33,9 @@ public class Presenter {
         return toy;
     }
 
+    /**
+     * @param toy Игрушка
+     */
     public void printResult(Toy toy){
         try{
             view.printRes("\nID: " + toy.getId() +

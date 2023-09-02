@@ -15,6 +15,13 @@ public class Toy implements Comparable<Toy> {
     private Integer ToyAmount; //кол-во игрушек
     private Integer ToyChance;
 
+    /**
+     * @param id Идентификатор игрушки
+     * @param toyName Имя игрушки
+     * @param toyAmount Количество игрушек
+     * @param toyChance Шанс выпадения игрушки
+     * @throws NullPointerException Одно из значений null
+     */
     public Toy(Integer id, String toyName, Integer toyAmount, Integer toyChance) throws NullPointerException {
         if (toyChance == null || id == null || toyName == null || toyAmount == null) {
             throw new NullPointerException("Одно из переданных значений в класс Toy == null");
@@ -25,10 +32,17 @@ public class Toy implements Comparable<Toy> {
         this.ToyChance = toyChance;
     }
 
+    /**
+     * @return Шанс выпадения игрушки
+     */
     public Integer getToyChance() {
         return ToyChance;
     }
 
+    /**
+     * @param toyChance Шанс выпадения игрушки
+     * @throws NullPointerException Значение шанса null
+     */
     protected void setToyChance(Integer toyChance) throws NullPointerException {
         if (toyChance == null) {
             throw new NullPointerException("Chance null");
@@ -37,11 +51,18 @@ public class Toy implements Comparable<Toy> {
         }
     }
 
+    /**
+     * @return Количество игрушек
+     */
     public Integer getToyAmount() {
         return ToyAmount;
     }
 
-    protected void setToyAmount(Integer toyAmount) throws NullPointerException, NumberFormatException {
+    /**
+     * @param toyAmount Количество игрушек
+     * @throws NullPointerException Значение количества игрушек null
+     */
+    protected void setToyAmount(Integer toyAmount) throws NullPointerException{
         if (toyAmount == null) {
             throw new NullPointerException("Amount null");
         } else {
@@ -49,10 +70,17 @@ public class Toy implements Comparable<Toy> {
         }
     }
 
+    /**
+     * @return Имя игрушки
+     */
     public String getToyName() {
         return ToyName;
     }
 
+    /**
+     * @param toyName Имя игрушки
+     * @throws NullPointerException Имя игрушки null
+     */
     protected void setToyName(String toyName) throws NullPointerException {
         if (toyName == null) {
             throw new NullPointerException("Name null");
@@ -61,6 +89,9 @@ public class Toy implements Comparable<Toy> {
         }
     }
 
+    /**
+     * @return Идентификатор игрушки
+     */
     public Integer getId() {
         return id;
     }
