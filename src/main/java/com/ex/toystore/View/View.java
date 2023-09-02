@@ -1,4 +1,7 @@
 package com.ex.toystore.View;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.lang.reflect.GenericArrayType;
 import java.util.Arrays;
 
 public class View{
@@ -7,10 +10,14 @@ public class View{
      * @param str Ответ для вывода в консоль
      */
     public void printRes(String str){
-        System.out.printf("""
-                \n===========================
-                Вы выиграли игрушку: %s
-                ===========================\n""", str);
+        try (FileWriter fileWriter = new FileWriter("res.txt", true)){
+            fileWriter.write("\n===========================");
+            fileWriter.write("\nВы выиграли игрушку: ");
+            fileWriter.write(str);
+            fileWriter.write("\n===========================");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**

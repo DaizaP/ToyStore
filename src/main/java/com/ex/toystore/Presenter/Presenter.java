@@ -41,7 +41,7 @@ public class Presenter {
             view.printRes("\nID: " + toy.getId() +
                           "\nИмя: " + toy.getToyName() +
                           "\nОсталось игрушек: " + toy.getToyAmount() +
-                          "\nШанс: " + toy.getToyChance() + "\n");
+                          "\nШанс: " + toy.getToyChance());
         }catch (RuntimeException e){
             view.printErr(e);
         }
