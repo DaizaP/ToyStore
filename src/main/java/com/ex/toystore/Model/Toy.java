@@ -1,7 +1,16 @@
 package com.ex.toystore.Model;
 
+//        1) Напишите класс-конструктор у которого принимает минимум 3 строки,
+//        содержащие три поля id игрушки, текстовое название и частоту выпадения
+//        игрушки
+//        2) Из принятой строки id и частоты выпадения(веса) заполнить минимум три
+//        массива.
+//        3) Используя API коллекцию: java.util.PriorityQueue добавить элементы в
+//        коллекцию
+//        4) Организовать общую очередь 5) Вызвать Get 10 раз и записать результат в
+//        файл
 public class Toy implements Comparable<Toy> {
-    private Integer id;
+    private final Integer id;
     private String ToyName;
     private Integer ToyAmount; //кол-во игрушек
     private Integer ToyChance;
@@ -20,7 +29,7 @@ public class Toy implements Comparable<Toy> {
         return ToyChance;
     }
 
-    public void setToyChance(Integer toyChance) throws NullPointerException {
+    protected void setToyChance(Integer toyChance) throws NullPointerException {
         if (toyChance == null) {
             throw new NullPointerException("Chance null");
         } else {
@@ -32,7 +41,7 @@ public class Toy implements Comparable<Toy> {
         return ToyAmount;
     }
 
-    public void setToyAmount(Integer toyAmount) throws NullPointerException {
+    protected void setToyAmount(Integer toyAmount) throws NullPointerException, NumberFormatException {
         if (toyAmount == null) {
             throw new NullPointerException("Amount null");
         } else {
@@ -44,7 +53,7 @@ public class Toy implements Comparable<Toy> {
         return ToyName;
     }
 
-    public void setToyName(String toyName) throws NullPointerException {
+    protected void setToyName(String toyName) throws NullPointerException {
         if (toyName == null) {
             throw new NullPointerException("Name null");
         } else {

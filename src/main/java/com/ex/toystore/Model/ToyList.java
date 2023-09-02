@@ -1,6 +1,6 @@
 package com.ex.toystore.Model;
 
-//1) Напишите класс-конструктор у которого принимает минимум 3 строки,
+//        1) Напишите класс-конструктор у которого принимает минимум 3 строки,
 //        содержащие три поля id игрушки, текстовое название и частоту выпадения
 //        игрушки
 //        2) Из принятой строки id и частоты выпадения(веса) заполнить минимум три
@@ -35,13 +35,31 @@ public class ToyList {
         if (this.toyList.peek() == null) {
             throw new NullPointerException("Список пустой");
         }
-        Integer amount = this.toyList.peek().getToyAmount();
+        Toy toy = this.toyList.poll();
+        Integer amount = toy.getToyAmount();
+        Integer chance = toy.getToyChance();
         if (amount == 1) {
-            this.toyList.peek().setToyAmount(0);
-            return this.toyList.poll();
+            toy.setToyAmount(0);
+            if (this.toyList.peek() == null){
+                //Ничего не меняем. "Оптимизация"
+            }else if (chance < 10) {
+                toy.setToyChance(chance + 1);
+            } else {
+                toy.setToyChance(chance - 5);
+            }
+            return toy;
         } else {
-            this.toyList.peek().setToyAmount(amount - 1);
-            return this.toyList.peek();
+            toy.setToyAmount(amount - 1);
+            if (this.toyList.peek() == null){
+                //Ничего не меняем. "Оптимизация"
+            } else if (chance < 10) {
+                toy.setToyChance(chance + 1);
+            } else {
+                toy.setToyChance(chance - 5);
+            }
+            this.toyList.add(toy);
+            return toy;
+
         }
     }
 
